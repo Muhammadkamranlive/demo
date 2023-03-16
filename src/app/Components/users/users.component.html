@@ -1,0 +1,157 @@
+
+<div class="container py-5">
+    <div class="row">
+      <div class="col-xl-8">
+        <div *ngIf="errorMessage">
+          <div class="alert bg-danger text-white">
+            {{errorMessage}}
+          </div>
+        </div>
+        
+      </div>
+     
+      
+    </div>
+  </div>
+  <div class="table-responsive datatable-custom">
+    <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+        <thead  class="thead-light">
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Active Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; index  as i;">
+
+            <th scope="row">{{i}}</th>
+            <td class="table-column-ps-0">
+              <a class="d-flex align-items-center" href="#">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
+                    <span class="avatar-initials">{{user.firstName | slice: 0:1}}</span>
+                  </div>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="text-inherit mb-0">{{user.firstName}} {{user.lastName}}</h5>
+                </div>
+              </a>
+            </td>
+            
+            <td>{{user.email}}</td>
+            <td>{{user.mobile}}</td>
+            <td>{{user.status}}</td>
+            <td>
+              <button
+                class="btn btn-success shadow mx-2"
+                (click)="onEdit(user)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Update
+              </button>
+              <button
+                class="btn btn-danger shadow"
+                (click)="deleteUser(user.userid)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+  
+  <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formvalue" >
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                formControlName="firstName"
+                class="form-control"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+              />
+            </div>
+  
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Mobile" class="form-label">Designation</label>
+              <select class="form-control" formControlName="mobile">
+                <option value="">Choose One</option>
+                <option value="trainees">Trainees</option>
+                <option value="juniors">Juniors</option>
+                
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="Mobile" class="form-label">Status</label>
+                 <select class="form-control" formControlName="status" required="true">
+                   <option value="">Select One</option>
+                   <option value="Active">Active</option>
+                   <option value="leave">On Leave</option>
+                 </select>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+           <button
+            type="button"
+            class="btn btn-success"
+            *ngIf="showUpdatebutton"
+            (click)="updateUser()">
+            Update
+        </button>
+        <button type="button" class="btn btn-primary" *ngIf="showAddbutton"  (click)="addUser()">
+            Save
+        </button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

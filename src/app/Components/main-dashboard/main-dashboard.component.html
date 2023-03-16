@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<main id="content" role="main" class="main bg-light">
+  <!-- Content -->
+  <div class="bg-dark">
+    <div class="content container" style="height: 25rem;">
+      <!-- Page Header -->
+      <div class="page-header page-header-light page-header-reset">
+        <div class="row align-items-center">
+          <div class="col">
+            <h1 class="page-header-title text-dark">Dashboard</h1>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-auto">
+            <a
+              class="btn btn-primary"
+              href="javascript:;"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i class="bi-person-plus-fill me-1"></i> Add users
+            </a>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Page Header -->
+    </div>
+  </div>
+  <!-- End Content -->
+
+  <!-- Content -->
+  <div class="content container" style="margin-top: -20rem;">
+    <!-- Navbar Vertical -->
+    <div class="navbar-expand-lg">
+      <app-side-nav></app-side-nav>
+    </div>
+    <!-- End Navbar Vertical -->
+
+    <!-- Sidebar Detached Content -->
+    <div class="sidebar-detached-content mt-3 mt-lg-0">
+      <!-- Stats -->
+      <app-header-stats></app-header-stats>
+      <!-- End Stats -->
+
+      <!-- End Row -->
+
+      <!-- Card -->
+      <div class="card mb-3 mb-lg-5">
+        <!-- Header -->
+        <div class="card-header">
+          <div
+            class="row justify-content-between align-items-center flex-grow-1"
+          >
+            <div class="col-md">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-header-title">Users</h4>
+              </div>
+            </div>
+            <!-- End Col -->
+
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+        <!-- End Header -->
+
+        <!-- Table -->
+        <app-users></app-users>
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Sidebar Detached Content -->
+  </div>
+  <!-- End Content -->
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
