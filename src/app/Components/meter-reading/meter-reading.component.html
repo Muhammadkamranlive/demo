@@ -536,12 +536,12 @@
                   <h5>Yesterday Meter Reading (Opening) </h5>
                   <div class="d-flex" >
                     
-                      <input type="text" class="form-control"  formControlName="d1" value={{users!.d1}}>
-                      <input type="text" class="form-control"  formControlName="d2" value={{users!.d2}}>
-                      <input type="text" class="form-control"  formControlName="p3"  value={{users!.p3}}>
-                      <input type="text" class="form-control"   formControlName="p4" value={{users!.p4}}>
-                      <input type="text" class="form-control"  formControlName="p5"  value={{users!.p5}}>
-                      <input type="text" class="form-control"  formControlName="p6"  value={{users!.p6}}>
+                      <input type="text" class="form-control"  formControlName="d1" value={{users?.d1}}>
+                      <input type="text" class="form-control"  formControlName="d2" value={{users?.d2}}>
+                      <input type="text" class="form-control"  formControlName="p3"  value={{users?.p3}}>
+                      <input type="text" class="form-control"   formControlName="p4" value={{users?.p4}}>
+                      <input type="text" class="form-control"  formControlName="p5"  value={{users?.p5}}>
+                      <input type="text" class="form-control"  formControlName="p6"  value={{users?.p6}}>
                     
                    
                   </div>
@@ -549,12 +549,12 @@
                  <div class="row py-1 customback3">
                     <h5>Today Meter Reading  </h5>
                     <div class="d-flex" >
-                      <input type="text" class="form-control" formControlName="d11" value={{user1!.d1}}  >
-                      <input type="text" class="form-control"   formControlName="d21" value={{user1!.d2}}>
-                      <input type="text" class="form-control" formControlName="p31" value={{user1!.p3}}>
-                      <input type="text" class="form-control"   formControlName="p41" value={{user1!.p4}}>
-                      <input type="text" class="form-control"  formControlName="p51" value={{user1!.p5}}>
-                      <input type="text" class="form-control"  formControlName="p61" value={{users!.p6}}>
+                      <input type="text" class="form-control" formControlName="d11"   >
+                      <input type="text" class="form-control"   formControlName="d21" >
+                      <input type="text" class="form-control" formControlName="p31" >
+                      <input type="text" class="form-control"   formControlName="p41" >
+                      <input type="text" class="form-control"  formControlName="p51" >
+                      <input type="text" class="form-control"  formControlName="p61">
                        
                     </div>
                  </div>
@@ -652,7 +652,7 @@
       </div>
      
       
-      <table class="table table-hover d-none" id="table1" >
+      <!-- <table class="table table-hover d-none" id="table1" >
         <thead>
          <tr>
         
@@ -676,13 +676,13 @@
               
             </td>
             <td>
-              {{user1!.date}}
+              {{user1!.date? user1!.date?:null}
             </td>
             <td>
-              {{users!.date}}
+              {{users!.date?users!.date:null}}
             </td>
             <td>
-              {{user1!.readingNo}}
+              {{user1!.readingNo?user1!.readingNo : null }}
             </td>
           </tr>
         </tbody>
@@ -747,11 +747,14 @@
           <td>
          {{user1!.d1}}  
           </td>
-            <td>              {{user1!.d2}}</td>
+            <td> {{user1!.d2}}</td>
             <td>
              {{user1!.p3}}
             </td>
-<td>              {{user1!.p4}}</td>
+            <td>
+              {{user1!.p4}}
+
+            </td>
             <td>
               {{user1!.p5}}
             </td>
@@ -854,7 +857,7 @@
          
          </tbody>
        
-      </table>
+      </table> -->
       <!-- End Content -->
      
       <!-- Footer -->

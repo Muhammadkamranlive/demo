@@ -151,6 +151,7 @@ export class MeterReadingComponent implements OnInit {
      this.users!.p5=form.value.p51;
      this.users!.p6=form.value.p61;
      this.users!.readingNo=form.value.readingNo;
+     console.log(this.users);
      this.service.create(this.users).subscribe(
       (response) => {
       alert("Reading Added Successfully")
