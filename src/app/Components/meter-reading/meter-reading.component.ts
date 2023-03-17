@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {  ElementRef, ViewChild } from '@angular/core';
-import { DataService } from 'src/app/Services/data.service';
 import { UserService } from 'src/app/Services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Nozle } from 'src/app/Models/Nozle';
-
+import Swal from 'sweetalert2';
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 import autoTable from 'jspdf-autotable'
@@ -15,20 +13,21 @@ import autoTable from 'jspdf-autotable'
 })
 export class MeterReadingComponent implements OnInit {
   
-  users?:Nozle;
-  user1?:Nozle;
-  value1:any;
-  value2:any;
-  value3:any;
-  value4:any;
-  value5:any;
-  value6:any;
-  value11:any;
-  value21:any;
-  value31:any;
-  value41:any;
-  value51:any;
-  value61:any;
+  todayreading:Nozle=new Nozle();
+  yesterdayreading:Nozle= new Nozle();
+  isloading:boolean=false;
+  todaymetersaled1!:number;
+  todaymetersaled2!:number;
+  todaymetersalep3!:number;
+  todaymetersalep4!:number;
+  todaymetersalep5!:number;
+  todaymetersalep6!:number;
+  todaymetersalepriced1!:number;
+  todaymetersalepriced2!:number;
+  TodayMeterSalePriceP3!:number;
+  TodayMeterSalePriceP4!:number;
+  TodayMeterSalePriceP5!:number;
+  TodayMeterSalePriceP6!:number;
   errorMessage: string | undefined = undefined;
   myForm = new FormGroup({
     openingDate: new FormControl(''),
@@ -52,114 +51,148 @@ export class MeterReadingComponent implements OnInit {
    
    }
   
-  getData(form:FormGroup) {
-    this.getData1(form);
+  GetTodayMeterReading(form:FormGroup) {
+    this.isloading=true;
     this.service.getAll(`https://localhost:7088/api/Nozle/getReading?date=${form.value.openingDate}&reading=${form.value.readingNo}`).subscribe(
       (response) => {
-       this.user1=response
-       this.myForm.controls.d11.setValue(this.user1!.d1);
-       this.myForm.controls.d21.setValue(this.user1!.d2);
-       this.myForm.controls.p31.setValue(this.user1!.p3);
-       this.myForm.controls.p41.setValue(this.user1!.p4);
-       this.myForm.controls.p51.setValue(this.user1!.p5);
-       this.myForm.controls.p61.setValue(this.user1!.p6);
-       this.user1!.date=form.value.openingDate;
-       this.user1!.readingNo=form.value.readingNo;
+       if(response!==null){
+       this.todayreading=response
+       this.myForm.controls.d11.setValue(this.todayreading.d1);
+       this.myForm.controls.d21.setValue(this.todayreading.d2);
+       this.myForm.controls.p31.setValue(this.todayreading.p3);
+       this.myForm.controls.p41.setValue(this.todayreading.p4);
+       this.myForm.controls.p51.setValue(this.todayreading.p5);
+       this.myForm.controls.p61.setValue(this.todayreading.p6);
+       this.myForm.controls.openingDate.setValue(this.todayreading.date);
+       this.myForm.controls.readingNo.setValue(this.todayreading.readingNo);
+       this.GetYesterdayMeterReading(form);
+       this.isloading=false;
+       }
+       else{
+        this.GetYesterdayMeterReading(form);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "No Today Reading Found",
+          footer: 'Please try later'
+        })
+        this.myForm.controls.d11.setValue(0);
+        this.myForm.controls.d21.setValue(0);
+        this.myForm.controls.p31.setValue(0);
+        this.myForm.controls.p41.setValue(0);
+        this.myForm.controls.p51.setValue(0);
+        this.myForm.controls.p61.setValue(0);
+        this.myForm.controls.openingDate.setValue('');
+        this.myForm.controls.readingNo.setValue(0);
+        this.isloading=false;
+       }
       },
       (err) => {
-        this.errorMessage = err.message;
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.message,
+          footer: 'Please try later'
+        })
+        this.myForm.controls.d11.setValue(0);
+        this.myForm.controls.d21.setValue(0);
+        this.myForm.controls.p31.setValue(0);
+        this.myForm.controls.p41.setValue(0);
+        this.myForm.controls.p51.setValue(0);
+        this.myForm.controls.p61.setValue(0);
+        this.myForm.controls.openingDate.setValue('');
+        this.myForm.controls.readingNo.setValue(0);
+        this.isloading=false;
       }
     );
   }
-
- 
-
   
-  getData1(form:any) {
+  GetYesterdayMeterReading(form:any) {
+    this.isloading=true;
     this.myForm.controls['closingdate'].setValue(this.formatDate(this.getPreviousDay(new Date(form.value.openingDate))));
     this.service.getAll(`https://localhost:7088/api/Nozle/getReading?date=${form.value.closingdate}&reading=${form.value.readingNo}`).subscribe(
       (response) => {
-       
-       this.users=response
-       this.myForm.controls.d1.setValue(this.users!.d1);
-       this.myForm.controls.d2.setValue(this.users!.d2);
-       this.myForm.controls.p3.setValue(this.users!.p3);
-       this.myForm.controls.p4.setValue(this.users!.p4);
-       this.myForm.controls.p5.setValue(this.users!.p5);
-       this.myForm.controls.p6.setValue(this.users!.p6);
-       this.users!.date=form.value.closingdate;
+       if(response!==null){
+       this.yesterdayreading=response
+       this.myForm.controls.d1.setValue(this.yesterdayreading.d1);
+       this.myForm.controls.d2.setValue(this.yesterdayreading.d2);
+       this.myForm.controls.p3.setValue(this.yesterdayreading.p3);
+       this.myForm.controls.p4.setValue(this.yesterdayreading.p4);
+       this.myForm.controls.p5.setValue(this.yesterdayreading.p5);
+       this.myForm.controls.p6.setValue(this.yesterdayreading.p6);
+       this.myForm.controls.closingdate.setValue(this.yesterdayreading.date);
+       this.myForm.controls.readingNo.setValue(this.yesterdayreading.readingNo);
        this.processValue(form);
+       this.isloading=false;
+       }
+       else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "No Yesterday Reading Found",
+          footer: 'Please try later'
+        })
+       this.myForm.controls.d1.setValue(0);
+       this.myForm.controls.d2.setValue(0);
+       this.myForm.controls.p3.setValue(0);
+       this.myForm.controls.p4.setValue(0);
+       this.myForm.controls.p5.setValue(0);
+       this.myForm.controls.p6.setValue(0);
+       this.myForm.controls.closingdate.setValue('');
+       this.myForm.controls.readingNo.setValue(0);
+       this.isloading=false;
+       }
       },
       (err) => {
-        this.errorMessage = err.message;
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.message,
+          footer: 'Please try later'
+        })
+        this.myForm.controls.d1.setValue(0);
+        this.myForm.controls.d2.setValue(0);
+        this.myForm.controls.p3.setValue(0);
+        this.myForm.controls.p4.setValue(0);
+        this.myForm.controls.p5.setValue(0);
+        this.myForm.controls.p6.setValue(0);
+        this.myForm.controls.closingdate.setValue('');
+        this.myForm.controls.readingNo.setValue(0);
+        this.isloading=false;
       }
     );
    
   }
 
 
-  getDataPosted(form:FormGroup) {
-    this.myForm.controls['openingDate'].setValue(this.formatDate(this.getnextDay(new Date(form.value.openingDate))));
-    this.service.getAll(`https://localhost:7088/api/Nozle/getReading?date=${form.value.openingDate}&reading=${form.value.readingNo}`).subscribe(
+
+
+  AddTodayMeterReadings(form:FormGroup){
+     var nozle = new Nozle();
+     nozle.date = form.value.openingDate;
+     nozle.d1=form.value.d11;
+     nozle.d2=form.value.d21;
+     nozle.p3=form.value.p31;
+     nozle.p4=form.value.p41;
+     nozle.p5=form.value.p51;
+     nozle.p6=form.value.p61;
+     nozle.readingNo=form.value.readingNo;
+     this.service.create(nozle).subscribe(
       (response) => {
-       this.user1=response
-       this.myForm.controls.d11.setValue(this.user1!.d1);
-       this.myForm.controls.d21.setValue(this.user1!.d2);
-       this.myForm.controls.p31.setValue(this.user1!.p3);
-       this.myForm.controls.p41.setValue(this.user1!.p4);
-       this.myForm.controls.p51.setValue(this.user1!.p5);
-       this.myForm.controls.p61.setValue(this.user1!.p6);
-       this.getData1(form);
-      },
-      (err) => {
-        this.errorMessage = err.message;
-      }
-    );
-  }
-
- 
-
+      Swal.fire(
+        'Reading Added Successfully!',
+        'You have added Reading!',
+        'success'
+      )
   
-  getData1Posted(form:any) {
-    this.myForm.controls['closingdate'].setValue(this.formatDate(this.getPreviousDay(new Date(form.value.openingDate))));
-   
-    this.service.getAll(`https://localhost:7088/api/Nozle/getReading?date=${form.value.closingdate}&reading=${form.value.readingNo}`).subscribe(
-      (response) => {
-       
-       this.users=response
-       this.myForm.controls.d1.setValue(this.users!.d1);
-       this.myForm.controls.d2.setValue(this.users!.d2);
-       this.myForm.controls.p3.setValue(this.users!.p3);
-       this.myForm.controls.p4.setValue(this.users!.p4);
-       this.myForm.controls.p5.setValue(this.users!.p5);
-       this.myForm.controls.p6.setValue(this.users!.p6);
-       console.log(this.user1)
-       this.processValue(form);
       },
       (err) => {
-        this.errorMessage = err.message;
-      }
-    );
-   
-  }
-  add(form:FormGroup){
-     this.users!.date=form.value.openingDate;
-     this.users!.d1=form.value.d11;
-     this.users!.d2=form.value.d21;
-     this.users!.p3=form.value.p31;
-     this.users!.p4=form.value.p41;
-     this.users!.p5=form.value.p51;
-     this.users!.p6=form.value.p61;
-     this.users!.readingNo=form.value.readingNo;
-     console.log(this.users);
-     this.service.create(this.users).subscribe(
-      (response) => {
-      alert("Reading Added Successfully")
-    
-      
-      },
-      (err) => {
-        this.errorMessage = err.message;
+        Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: err.message,
+              footer: 'Please try later'
+            })
       }
     );
   }
@@ -190,38 +223,37 @@ export class MeterReadingComponent implements OnInit {
 
   ngOnInit() {
    
-    
   }
 
   processValue(form:FormGroup){
-           this.value1=form.value.d11-form.value.d1;
-           this.value2=form.value.d21-form.value.d2;
-           this.value3=form.value.p31-form.value.p3;
-           this.value4=form.value.p41-form.value.p4;
-           this.value5=form.value.p51-form.value.p5;
-           this.value6=form.value.p61-form.value.p6;
            
-           this.value11=this.value1*280;
-           this.value21=this.value2*280;
-           this.value31=this.value3*272;
-           this.value41=this.value4*272;
-           this.value51=this.value5*272;
-           this.value61=this.value6*272;
+           this.todaymetersaled1=form.value.d11-form.value.d1;
+           this.todaymetersaled2=form.value.d21-form.value.d2;
+           this.todaymetersalep3=form.value.p31-form.value.p3;
+           this.todaymetersalep4=form.value.p41-form.value.p4;
+           this.todaymetersalep5=form.value.p51-form.value.p5;
+           this.todaymetersalep6=form.value.p61-form.value.p6;
+           this.todaymetersalepriced1=this.todaymetersaled1*280;
+           this.todaymetersalepriced2=this.todaymetersaled2*280;
+           this.TodayMeterSalePriceP3=this.todaymetersalep3*272;
+           this.TodayMeterSalePriceP4=this.todaymetersalep4*272;
+           this.TodayMeterSalePriceP5=this.todaymetersalep5*272;
+           this.TodayMeterSalePriceP6=this.todaymetersalep6*272;
           
   }
 
   public generatePDF(): void {
-
+   this.isloading=true;
    const doc = new jsPDF()
    autoTable(doc, { html: '#table1' })
    autoTable(doc, { html: '#table' })
    autoTable(doc, { html: '#table2' })
 
-   doc.save('table.pdf')
+   doc.save('table.pdf');
+   this.isloading=false;
   }
-  onSubmit(form:FormGroup) {
-    console.log(form.value.openingDate)
-  }
+
+ 
 
 
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SideNavComponent } from './side-nav.component';
+import { TopHeaderUIComponent } from './top-header-ui.component';
 
-describe('SideNavComponent', () => {
-  let component: SideNavComponent;
-  let fixture: ComponentFixture<SideNavComponent>;
+describe('TopHeaderUIComponent', () => {
+  let component: TopHeaderUIComponent;
+  let fixture: ComponentFixture<TopHeaderUIComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SideNavComponent ]
+      declarations: [ TopHeaderUIComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SideNavComponent);
+    fixture = TestBed.createComponent(TopHeaderUIComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

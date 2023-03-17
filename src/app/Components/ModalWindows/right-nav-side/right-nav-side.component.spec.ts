@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainDashboardComponent } from './main-dashboard.component';
+import { RightNavSideComponent } from './right-nav-side.component';
 
-describe('MainDashboardComponent', () => {
-  let component: MainDashboardComponent;
-  let fixture: ComponentFixture<MainDashboardComponent>;
+describe('RightNavSideComponent', () => {
+  let component: RightNavSideComponent;
+  let fixture: ComponentFixture<RightNavSideComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainDashboardComponent ]
+      declarations: [ RightNavSideComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MainDashboardComponent);
+    fixture = TestBed.createComponent(RightNavSideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

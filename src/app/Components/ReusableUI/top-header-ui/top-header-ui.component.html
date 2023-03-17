@@ -1,0 +1,469 @@
+<header id="header" class="navbar  navbar-expand-lg  navbar-spacer-y-0 flex-lg-column sticky-top">
+    <div class="navbar-dark w-100 bg-dark py-2 ">
+      <div class="container">
+        <div class="navbar-nav-wrap">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#" aria-label="n">
+            <img class="navbar-brand-logo" src="https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/logo1233.png?alt=media&token=f0f6133d-7745-4bde-950d-7afed82e85cd" alt="Logo">
+          </a>
+          <!-- End Logo -->
+
+          <!-- Content Start -->
+          <div class="navbar-nav-wrap-content-start">
+            <!-- Search Form -->
+            <div class="d-none d-lg-block">
+              <div class="dropdown ms-2">
+                <!-- Input Group -->
+                <div class="d-none d-lg-block">
+                  <div class="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
+                    <div class="input-group-prepend input-group-text">
+                      <i class="bi-search"></i>
+                    </div>
+
+                    <input type="search" class="js-form-search form-control" placeholder="Search in Nayara"
+                           >
+                    <a class="input-group-append input-group-text" href="javascript:;">
+                      <i id="clearSearchResultsIcon" class="bi-x-lg" style="display: none;"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <button class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none" type="button" data-hs-form-search-options='{
+                           "clearIcon": "#clearSearchResultsIcon",
+                           "dropMenuElement": "#searchDropdownMenu",
+                           "dropMenuOffset": 20,
+                           "toggleIconOnFocus": true,
+                           "activeClass": "focus"
+                         }'>
+                  <i class="bi-search"></i>
+                </button>
+                <!-- End Input Group -->
+
+               
+                <!-- End Card Search Content -->
+
+              </div>
+
+            </div>
+            <!-- End Search Form -->
+          </div>
+          <!-- End Content Start -->
+
+          <!-- Content End -->
+          <div class="navbar-nav-wrap-content-end">
+            <!-- Navbar -->
+            <ul class="navbar-nav">
+              <li class="nav-item d-none d-md-inline-block">
+                <!-- Notification -->
+                <div class="dropdown">
+                  <button type="button" class="btn btn-ghost-light btn-icon rounded-circle" id="navbarNotificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+                    <i class="bi-bell"></i>
+                    <span class="btn-status btn-sm-status btn-status-danger"></span>
+                  </button>
+
+                  <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdown" style="width: 25rem;">
+                    <div class="card">
+                      <!-- Header -->
+                      <div class="card-header card-header-content-between">
+                        <h4 class="card-title mb-0">Notifications</h4>
+
+                        <!-- Unfold -->
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" id="navbarNotificationsDropdownSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-three-dots-vertical"></i>
+                          </button>
+
+                          <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdownSettings">
+                            <span class="dropdown-header">Settings</span>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-archive dropdown-item-icon"></i> Archive all
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-check2-all dropdown-item-icon"></i> Mark all as read
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-toggle-off dropdown-item-icon"></i> Disable notifications
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-gift dropdown-item-icon"></i> What's new?
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-header">Feedback</span>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
+                            </a>
+                          </div>
+                        </div>
+                        <!-- End Unfold -->
+                      </div>
+                      <!-- End Header -->
+
+                      <!-- Nav -->
+                      <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#notificationNavOne" id="notificationNavOne-tab" data-bs-toggle="tab" data-bs-target="#notificationNavOne" role="tab" aria-controls="notificationNavOne" aria-selected="true">Messages (3)</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#notificationNavTwo" id="notificationNavTwo-tab" data-bs-toggle="tab" data-bs-target="#notificationNavTwo" role="tab" aria-controls="notificationNavTwo" aria-selected="false">Archived</a>
+                        </li>
+                      </ul>
+                      <!-- End Nav -->
+
+                      <!-- Body -->
+                      <div class="card-body-height">
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="notificationTabContent">
+                          <div class="tab-pane fade show active" id="notificationNavOne" role="tabpanel" aria-labelledby="notificationNavOne-tab">
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush navbar-card-list-group">
+                              <!-- Item -->
+                             
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck2" checked>
+                                        <label class="form-check-label" for="notificationCheck2"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                        <span class="avatar-initials">K</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Klara Hampton</h5>
+                                    <p class="text-body fs-5">mentioned you in a comment</p>
+                                    <blockquote class="blockquote blockquote-sm">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">10hr</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                            
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                            
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                             
+                              <!-- End Item -->
+                            </ul>
+                            <!-- End List Group -->
+                          </div>
+
+                          <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush navbar-card-list-group">
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck6">
+                                        <label class="form-check-label" for="notificationCheck6"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                        <span class="avatar-initials">A</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Anne Richard</h5>
+                                    <p class="text-body fs-5">accepted your invitation to join Notion</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">1dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                             
+                            </ul>
+                            <!-- End List Group -->
+                          </div>
+                        </div>
+                        <!-- End Tab Content -->
+                      </div>
+                      <!-- End Body -->
+
+                      <!-- Card Footer -->
+                      <a class="card-footer text-center" href="#">
+                        View all notifications <i class="bi-chevron-right"></i>
+                      </a>
+                      <!-- End Card Footer -->
+                    </div>
+                  </div>
+                </div>
+                <!-- End Notification -->
+              </li>
+
+              <li class="nav-item d-none d-sm-inline-block">
+                <!-- Apps -->
+                
+                <!-- End Apps -->
+              </li>
+
+              <li class="nav-item d-none d-sm-inline-block">
+                <!-- Activity -->
+                <button class="btn btn-ghost-light btn-icon rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasActivityStream" aria-controls="offcanvasActivityStream">
+                  <i class="bi bi-list " style="font-size: 20px;"></i>
+                </button>
+                <!-- Activity -->
+              </li>
+
+              <li class="nav-item">
+                <!-- Style Switcher -->
+                <div class="dropdown ">
+                  <button type="button" class="btn btn-ghost-light btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+                  </button>
+
+                  <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+                    <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                      <i class="bi-moon-stars me-2"></i>
+                      <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+                    </a>
+                    <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                      <i class="bi-brightness-high me-2"></i>
+                      <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+                    </a>
+                    <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                      <i class="bi-moon me-2"></i>
+                      <span class="text-truncate" title="Dark">Dark</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- End Style Switcher -->
+              </li>
+
+              <li class="nav-item">
+                <!-- Account -->
+                <div class="dropdown">
+                  <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+                    <div class="avatar avatar-sm avatar-circle">
+                      <img class="avatar-img" src="https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/img6.jpg?alt=media&token=debeb47b-b93a-4804-86dc-cc3d4ce5d0de" alt="Image Description">
+                      <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                    </div>
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
+                    <div class="dropdown-item-text">
+                      <div class="d-flex align-items-center">
+                        <div class="avatar avatar-sm avatar-circle">
+                          <img class="avatar-img" src="https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/img6.jpg?alt=media&token=debeb47b-b93a-4804-86dc-cc3d4ce5d0de" alt="Image Description">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          <h5 class="mb-0">Kamran</h5>
+                          <p class="card-text text-body">KM@site.com</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                      <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown1" data-bs-toggle="dropdown" aria-expanded="false">Set status</a>
+
+                      <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown1">
+                        <a class="dropdown-item" href="#">
+                          <span class="legend-indicator bg-success me-1"></span> Available
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <span class="legend-indicator bg-danger me-1"></span> Busy
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <span class="legend-indicator bg-warning me-1"></span> Away
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"> Reset status
+                        </a>
+                      </div>
+                    </div>
+                    <!-- End Dropdown -->
+
+                    <a class="dropdown-item" href="#">Profile &amp; account</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+
+                    <div class="dropdown-divider"></div>
+
+                    
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                      <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Customization</a>
+
+                      <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown2">
+                        <a class="dropdown-item" href="#">
+                          Invite people
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          Analytics
+                          <i class="bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          Customize Front
+                          <i class="bi-box-arrow-in-up-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <!-- End Dropdown -->
+
+                    <a class="dropdown-item" href="#">Manage team</a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item" href="#">Sign out</a>
+                  </div>
+                </div>
+                <!-- End Account -->
+              </li>
+
+              <li class="nav-item">
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDoubleLineContainerNavDropdown" aria-controls="navbarDoubleLineContainerNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-default">
+                    <i class="bi-list"></i>
+                  </span>
+                  <span class="navbar-toggler-toggled">
+                    <i class="bi-x"></i>
+                  </span>
+                </button>
+                <!-- End Toggler -->
+              </li>
+            </ul>
+            <!-- End Navbar -->
+          </div>
+          <!-- End Content End -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid bg-white " >
+      <!-- Header -->
+     <header class="navbar navbar-expand-lg navbar-end bg-white ">
+      <div class="container">
+      <div class="navbar-nav-wrap">
+          <div class="navbar-brand-wrapper">
+          <!-- Logo -->
+          <a class="navbar-brand" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+              <i class="bi bi-list text-dark" style="font-size: 20px;"></i>
+          </a>
+          <!-- End Logo -->
+          </div>
+  
+          <!-- Toggle -->
+          <button type="button" class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navbarNavMenuBorderless" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNavMenuBorderless">
+          <span class="navbar-toggler-default">
+              <i class="bi-list"></i>
+          </span>
+          <span class="navbar-toggler-toggled">
+              <i class="bi-x"></i>
+          </span>
+          </button>
+          <!-- End Toggle -->
+  
+          <nav class="navbar-nav-wrap-col collapse navbar-collapse" id="navbarNavMenuBorderless">
+          <!-- Navbar -->
+          <ul class="navbar-nav">
+              <li class="nav-item">
+              <a class="nav-link active" href="#">Active</a>
+              </li>
+  
+              <!-- Dropdown -->
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarBorderlessDropdownSubMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+  
+              <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarBorderlessDropdownSubMenu" style="min-width: 230px;">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+              </li>
+              <!-- End Dropdown -->
+  
+              <!-- Nav Item -->
+              <li class="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarBorderlessMegaMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mega menu</a>
+  
+              <div class="dropdown-menu navbar-dropdown-menu-borderless w-100" aria-labelledby="navbarBorderlessMegaMenu">
+                  <div class="row">
+                  <div class="col-lg-3 mb-3 mb-lg-0">
+                      <span class="dropdown-header">One</span>
+  
+                      <a class="dropdown-item" href="#">One</a>
+                      <a class="dropdown-item" href="#">Two</a>
+                      <a class="dropdown-item" href="#">Three</a>
+                  </div>
+  
+                  <div class="col-lg-3 mb-3 mb-lg-0">
+                      <span class="dropdown-header">Two</span>
+  
+                      <a class="dropdown-item" href="#">One</a>
+                      <a class="dropdown-item" href="#">Two</a>
+                      <a class="dropdown-item" href="#">Three</a>
+                  </div>
+  
+                  <div class="col-lg-3 mb-3 mb-lg-0">
+                      <span class="dropdown-header">Three</span>
+  
+                      <a class="dropdown-item" href="#">One</a>
+                      <a class="dropdown-item" href="#">Two</a>
+                  </div>
+  
+                  <div class="col-lg-3">
+                      <span class="dropdown-header">Four</span>
+  
+                      <a class="dropdown-item" href="#">One</a>
+                      <a class="dropdown-item" href="#">Two</a>
+                      <a class="dropdown-item" href="#">Three</a>
+                  </div>
+                  </div>
+              </div>
+              </li>
+              <!-- End Nav Item -->
+  
+              <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+              </li>
+          </ul>
+          <!-- End Navbar -->
+          </nav>
+      </div>
+      </div>
+    </header>
+<!-- End Header -->
+    </div>
+  </header>
